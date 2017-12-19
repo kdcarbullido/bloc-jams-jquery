@@ -1,5 +1,6 @@
 {
     album.songs.forEach((song, index) => {
+        let prettyDuration = player.prettyTime(song.duration);
         song.element = $(`
             <tr>
                 <td>
@@ -10,12 +11,12 @@
                     </button>
                 </td>
                 <td>${song.title}</td>
-                <td>${song.duration}</td>
+                <td>${prettyDuration}</td>
             </tr>
         `);
 
         song.element.on('click', event => {
-            player.playPause(song);
+            helper.playPauseAndUpdate(song);
             $('button#play-pause').attr('playState', player.playState);
         });
 

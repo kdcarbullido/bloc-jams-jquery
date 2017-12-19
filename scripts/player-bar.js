@@ -1,6 +1,6 @@
 {
    $('button#play-pause').on('click', function() {
-       player.playPause();
+       helper.playPauseAndUpdate();
        $(this).attr('playState', player.playState);
    });
 
@@ -12,7 +12,7 @@
         if (nextSongIndex >= album.songs.length) { return; }
 
         const nextSong = album.songs[nextSongIndex];
-        player.playPause(nextSong);
+       helper.playPauseAndUpdate(nextSong);
 
    });
 
@@ -24,20 +24,25 @@
        if (prevSongIndex < 0) { return; }
 
        const prevSong = album.songs[prevSongIndex];
-       player.playPause(prevSong);
+       helper.playPauseAndUpdate(prevSong);
    });
 
    $('#time-control').on('input', function (event) {
         player.skipTo(event.target.value);
    });
 
+   $('#volume-control').on('input', function (event) {
+       player.setVolume(event.target.value);
+   });
+
 
 
    setInterval( () => {
-       if (player.playState !== 'playing') { return; }
+       if (player.playState !== 'playing') { return; };
        var currentTime = player.getTime();
        var duration = player.getDuration();
        var percent = (currentTime / duration) * 100;
+       currentTime = player.prettyTime(currentTime);
        $('#time-control .current-time').text(currentTime);
        $('#time-control input').val(percent);
    }, 1000);

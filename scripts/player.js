@@ -39,7 +39,7 @@ class Player {
   }
   
   skipTo (percent) {
-    if (this.playState !== 'playing') { return };
+    if (this.playState !== 'playing') { return; };
     this.soundObject.setTime( (percent / 100) * this.soundObject.getDuration() );
   }
   
@@ -47,6 +47,17 @@ class Player {
     this.volume = percent;
     this.soundObject.setVolume(percent);
   }
+
+  prettyTime (timeInSeconds) {
+
+      let minutes = Math.floor( timeInSeconds / 60);
+      let secs = Math.floor( timeInSeconds % 60);
+      return (minutes + ":" + secs);
+  }
+
+
+
+
 }
 
 const player = new Player();
