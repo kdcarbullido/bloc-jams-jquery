@@ -12,7 +12,7 @@
         if (nextSongIndex >= album.songs.length) { return; }
 
         const nextSong = album.songs[nextSongIndex];
-       helper.playPauseAndUpdate(nextSong);
+        helper.playPauseAndUpdate(nextSong);
 
    });
 
@@ -27,7 +27,7 @@
        helper.playPauseAndUpdate(prevSong);
    });
 
-   $('#time-control').on('input', function (event) {
+   $('#time-control input').on('input', function (event) {
         player.skipTo(event.target.value);
    });
 
@@ -36,7 +36,7 @@
    });
 
 
-
+/*
    setInterval( () => {
        if (player.playState !== 'playing') { return; };
        var currentTime = player.getTime();
@@ -46,6 +46,6 @@
        $('#time-control .current-time').text(currentTime);
        $('#time-control input').val(percent);
    }, 1000);
-
+*/
 
 }

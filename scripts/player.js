@@ -39,6 +39,7 @@ class Player {
   }
   
   skipTo (percent) {
+//    console.log(percent, this.soundObject.getDuration());
     if (this.playState !== 'playing') { return; };
     this.soundObject.setTime( (percent / 100) * this.soundObject.getDuration() );
   }

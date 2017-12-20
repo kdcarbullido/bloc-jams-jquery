@@ -1,5 +1,5 @@
 {
-    album.songs.forEach((song, index) => {
+    album.songs.forEach( (song, index) => {
         let prettyDuration = player.prettyTime(song.duration);
         song.element = $(`
             <tr>
@@ -22,5 +22,5 @@
 
         $('#song-list').append(song.element);
 
-    })
+    });
 }
