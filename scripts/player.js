@@ -39,7 +39,6 @@ class Player {
   }
   
   skipTo (percent) {
-//    console.log(percent, this.soundObject.getDuration());
     if (this.playState !== 'playing') { return; };
     this.soundObject.setTime( (percent / 100) * this.soundObject.getDuration() );
   }
@@ -50,15 +49,10 @@ class Player {
   }
 
   prettyTime (timeInSeconds) {
-
       let minutes = Math.floor( timeInSeconds / 60);
       let secs = Math.floor( timeInSeconds % 60);
       return (minutes + ":" + secs);
   }
-
-
-
-
 }
 
 const player = new Player();
