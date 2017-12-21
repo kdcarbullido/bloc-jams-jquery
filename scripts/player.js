@@ -51,6 +51,7 @@ class Player {
   prettyTime (timeInSeconds) {
       let minutes = Math.floor( timeInSeconds / 60);
       let secs = Math.floor( timeInSeconds % 60);
+      if (secs < 10) {return (minutes + ":0" + secs)};
       return (minutes + ":" + secs);
   }
 }
